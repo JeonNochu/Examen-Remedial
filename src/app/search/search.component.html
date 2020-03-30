@@ -1,0 +1,55 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+<div  class="{{cssData.color}}">
+    <div class="container-fluid ">
+        <div [class]="cssData">
+            <div class="col-6 text-light text-center">
+                <h3 class="display-4 font-italic"> Perfiles de Github</h3>
+                <div class="col-12">
+                  <div class="col-10 mt-4" style="margin: 0px;">
+                      <div class="form-group d-flex justify-content">
+                          <input class="form-control" [formControl]="nameUser" type="text">
+                          <button [disabled]="nameUser.invalid" class="btn btn-outline-light" style="margin: 2px"
+                              (click)="search()"> <i class="fa fa-search"></i></button>
+                      </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="d-flex">
+                      <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                        <div class="mainflip">
+                            <div class="frontside">
+                        <div *ngIf="userData" class="card mb-4 " style="width: 30rem; margin-left: 45rem;">
+                          <div class="card">
+                            <div class="card-body text-center">
+                                <p><img [src]="userData.avatar_url" class="card-img-top" alt="card image"></p>
+                                <h4 class="card-title" >{{userData.name}}</h4>
+                                <p class="card-text">
+                                  <i class="fa fa-book"></i><strong><br>Repositorios:</strong><span>{{' ' + userData.public_repos}}</span>
+                                  <br>
+                                  <i class="fa fa-users"></i><strong><br>Followers :</strong><span>{{' ' + userData.followers }}</span>
+                                </p>
+                                <a href="{{userData.html_url}}" target="_blank" class="btn btn-primary btn-sm"><i class="fa fa-location-arrow"></i> Ver Perfil</a>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-2"></div>
+            </div>
+        </div>
+    </div>
+                  </div>
+            </div>
+            <div class="col-5 modifi">
+                <div class="d-flex justify-content-end">
+                    <button class="btn bg-light" style="margin: 8px" (click)="changeTheme()"> <i class="fas fa-adjust" (click)="changeTheme()"></i></button>
+                    <button class="btn bg-light" style="margin: 8px" (click)="logout()"> <i class="fas fa-user"></i>
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
